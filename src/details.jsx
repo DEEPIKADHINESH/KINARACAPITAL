@@ -9,7 +9,7 @@ class Details extends Component {
     state = {
         user: [],
         currentPage: 1,
-        pageSize: 2,
+        pageSize: 5,
         searchQuery: "",
 
     }
@@ -29,8 +29,8 @@ class Details extends Component {
     }
     getPagedData = () => {
         let filtered = this.state.user
-        if (this.state.searchQuery)
-            filtered = this.state.user.filter(item => { return Object.keys(item).some(key => item[key].toLowerCase().startsWith(this.state.searchQuery.toLowerCase())) })
+        // if (this.state.searchQuery)
+        //     filtered = this.state.user.filter(item => { return Object.keys(item).some(key => item[key].toLowerCase().startsWith(this.state.searchQuery.toLowerCase())) })
         const user = paginate(filtered, this.state.currentPage, this.state.pageSize)
 
         return { user }
